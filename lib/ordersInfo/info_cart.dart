@@ -30,7 +30,7 @@ class CartOrdersInfo extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text('price medicen: ${infoOrder.priceMed}'),
+                child: Text('price medicen : ${infoOrder.priceMed}'),
               ),
               const SizedBox(
                 height: 10,
@@ -39,7 +39,10 @@ class CartOrdersInfo extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              Text('Quantity: ${infoOrder.quantity}')
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('Quantity: ${infoOrder.quantity}'),
+              )
             ],
           ),
         ),
