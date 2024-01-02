@@ -54,9 +54,9 @@ class RegisterView extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: [
-                    const Text(
-                      'Register',
-                      style: TextStyle(
+                    Text(
+                      "7".tr,
+                      style: const TextStyle(
                         fontFamily: 'PTSerif-Regular',
                         fontSize: 35,
                         color: kFontColor,
@@ -91,9 +91,9 @@ class RegisterView extends StatelessWidget {
                         );
                         userAPI.signUp(user);
                       },
-                      child: const Text(
-                        'Sign Up',
-                        style: TextStyle(fontSize: 16),
+                      child: Text(
+                        "10".tr,
+                        style: const TextStyle(fontSize: 16),
                       ),
                     ),
                   ],
@@ -106,9 +106,9 @@ class RegisterView extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
-                  'Already have an account ? ',
-                  style: TextStyle(
+                Text(
+                  "11".tr,
+                  style: const TextStyle(
                     fontFamily: 'PPlayfairDisplay-SemiBoldItalic',
                     fontSize: 16,
                     color: Color.fromARGB(255, 109, 108, 108),
@@ -118,9 +118,9 @@ class RegisterView extends StatelessWidget {
                   onTap: () {
                     Get.off(LoginPage());
                   },
-                  child: const Text(
-                    'Login ',
-                    style: TextStyle(
+                  child: Text(
+                    "1".tr,
+                    style: const TextStyle(
                       fontFamily: 'PTSerif-Regular',
                       fontSize: 20,
                       color: kFontColor,

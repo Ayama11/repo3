@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../gategory_view/gategory_view.dart';
+
 class AppBarW extends StatelessWidget implements PreferredSizeWidget {
   const AppBarW({
     super.key,

@@ -16,15 +16,22 @@ class Api {
     if (response.statusCode == 200) {
       return jsonDecode(response.body);
     } else {
-      throw Exception(
-          'There is problem with status code ${response.statusCode}');
+      return Get.defaultDialog(
+        title: 'Erorr\n',
+        middleText: 'There is problem with status code ${response.statusCode}',
+      );
+      // throw Exception(
+
+      //     'There is problem with status code ${response.statusCode}',
+      //     );
     }
   }
 
   Future<dynamic> post(
       {required String url,
       @required dynamic body,
-      @required String? token}) async {
+      @required String? token,
+      required Map<String, String> headers}) async {
     Map<String, String> headers = {};
 
     if (token != null) {
@@ -38,7 +45,7 @@ class Api {
     } else if (response.statusCode == 404 ||
         response.statusCode == 422 ||
         response.statusCode == 500) {
-      return Get.defaultDialog(title: "erer");
+      return Get.defaultDialog(title: "Erorr ${response.statusCode}");
     }
   }
 

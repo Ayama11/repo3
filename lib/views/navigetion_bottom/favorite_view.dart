@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../widgets/header_home_view.dart/appbar.dart';
 
 class FavoriteView extends StatelessWidget {
@@ -16,12 +17,13 @@ class FavoriteView extends StatelessWidget {
               height: 10,
             ),
             AppBarW(
-              titel: const Text(
-                ' Favorite',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontFamily: 'Charm-Regular',
-                    fontSize: 22),
+              titel: Text(
+                "16".tr,
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontFamily: 'Charm-Regular',
+                  //   fontSize: 20
+                ),
               ),
               backgroundColor: Colors.transparent,
               showBackArrow: true,
@@ -38,6 +40,12 @@ class FavoriteView extends StatelessWidget {
                 })
               ],
             ),
+            const SizedBox(
+              height: 30,
+            ),
+            const Padding(
+              padding: EdgeInsets.all(8),
+            ),
           ],
         ),
       ), //body: const Center(child: Icon(Iconsax.shopping_cart)),
@@ -46,3 +54,15 @@ class FavoriteView extends StatelessWidget {
     );
   }
 }
+/*
+// عرض الأدوية المفضلة في واجهة المفضلة
+Future<List<String>> getFavorites() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  List<String> favorites = prefs.getStringList('favorites') ?? [];
+  return favorites;
+}
+
+
+
+
+*/ 

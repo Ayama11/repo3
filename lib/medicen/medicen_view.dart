@@ -19,6 +19,7 @@ class Medicen extends StatelessWidget {
   });
   final int id;
   final String comSearch;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,9 +30,10 @@ class Medicen extends StatelessWidget {
               height: 10,
             ),
             AppBarW(
-              titel: const Text(
-                ' Medicen',
-                style: TextStyle(color: Colors.black),
+              titel: Text(
+                "18".tr,
+                style: const TextStyle(
+                    color: Colors.black, fontFamily: 'Charm-Regular'),
               ),
               backgroundColor: Colors.transparent,
               showBackArrow: true,
@@ -76,6 +78,7 @@ class Medicen extends StatelessWidget {
                   if (snapshot.hasData) {
                     List<GategoryMedicenModel> products = snapshot.data!;
                     return GridViewhome(
+                      crossAxisCount: 2,
                       itemCount: products.length,
                       itemBuilder: (BuildContext context, index) => CustomCard(
                         product: products[index],

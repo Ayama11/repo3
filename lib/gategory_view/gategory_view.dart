@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:iconsax/iconsax.dart';
 
@@ -9,13 +10,15 @@ import 'package:repopharma_app/widgets/header_home_view.dart/appbar.dart';
 
 import 'package:repopharma_app/widgets/header_home_view.dart/primary_header.dart';
 
-import '../../gategory_view/gategory_model.dart';
-import '../../gategory_view/gategory_service.dart';
-import '../../widgets/header_home_view.dart/searche_container.dart';
+import 'gategory_model.dart';
+import 'gategory_service.dart';
+import '../widgets/header_home_view.dart/searche_container.dart';
 
 class GategoryView extends StatelessWidget {
   const GategoryView({super.key, this.textsearchController});
+
   final TextEditingController? textsearchController;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,9 +34,9 @@ class GategoryView extends StatelessWidget {
                   ),
                   // TAppBar(),
                   AppBarW(
-                    titel: const Text(
-                      'Welcome back',
-                      style: TextStyle(
+                    titel: Text(
+                      "12".tr,
+                      style: const TextStyle(
                           color: Color.fromARGB(255, 255, 253, 253),
                           fontSize: 24,
                           fontFamily: 'Charm-Regular'),
@@ -77,10 +80,10 @@ class GategoryView extends StatelessWidget {
                 ],
               ),
             ),
-            const Center(
+            Center(
               child: Text(
-                'Gategory',
-                style: TextStyle(
+                "13".tr,
+                style: const TextStyle(
                     fontSize: 20,
                     fontFamily: 'JosefinSans-VariableFont_wght',
                     color: Color.fromARGB(255, 83, 83, 83)),
@@ -95,6 +98,7 @@ class GategoryView extends StatelessWidget {
                     List<GategoryModel> products = snapshot.data!;
 
                     return GridViewhome(
+                      crossAxisCount: 2,
                       itemCount: products.length,
                       itemBuilder: (BuildContext context, index) =>
                           CardGategory(

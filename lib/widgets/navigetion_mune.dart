@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:iconsax/iconsax.dart';
-import 'package:repopharma_app/views/navigetion_bottom/cart_view.dart';
-import 'package:repopharma_app/views/navigetion_bottom/gategory_view.dart';
+import 'package:repopharma_app/cart/cart_view.dart';
+import 'package:repopharma_app/gategory_view/gategory_view.dart';
 import 'package:repopharma_app/views/navigetion_bottom/favorite_view.dart';
 
 import 'package:repopharma_app/views/navigetion_bottom/profile_view.dart';
@@ -23,23 +23,23 @@ class NavigationMuneBottom extends StatelessWidget {
           selectedIndex: controller.selectedIndex.value,
           onDestinationSelected: (index) =>
               controller.selectedIndex.value = index,
-          destinations: const [
+          destinations: [
             NavigationDestination(
-              icon: Icon(Iconsax.home),
-              label: 'Home',
+              icon: const Icon(Iconsax.home),
+              label: "14".tr,
             ),
             NavigationDestination(
-              icon: Icon(Iconsax.shopping_cart),
+              icon: const Icon(Iconsax.shopping_cart),
               //shop_add
-              label: 'Cart',
+              label: "15".tr,
             ),
             NavigationDestination(
-              icon: Icon(Iconsax.heart),
-              label: 'Favorite',
+              icon: const Icon(Iconsax.heart),
+              label: "16".tr,
             ),
             NavigationDestination(
-              icon: Icon(Iconsax.user),
-              label: 'Profile',
+              icon: const Icon(Iconsax.user),
+              label: "17".tr,
             ),
           ],
         ),
@@ -53,7 +53,7 @@ class NavigationController extends GetxController {
   Rx<int> selectedIndex = 0.obs;
   final viewScreen = [
     const GategoryView(),
-    const CartView(),
+    CartView(),
     const FavoriteView(),
     const ProfileView(),
   ];

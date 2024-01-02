@@ -18,9 +18,9 @@ class SearchView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Search',
-          style: TextStyle(color: Colors.black),
+        title: Text(
+          'Search'.tr,
+          style: const TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -52,7 +52,8 @@ class SearchView extends StatelessWidget {
                               onPressed: () {
                                 com = searchController.text;
                                 if (com.isEmpty) {
-                                  Get.snackbar('Erorr', 'enter medicen name',
+                                  Get.snackbar(
+                                      'Erorr'.tr, 'enter medicen name'.tr,
                                       backgroundColor: const Color.fromARGB(
                                           255, 241, 189, 185));
                                 } else if (com.isNotEmpty) {
@@ -66,7 +67,7 @@ class SearchView extends StatelessWidget {
                                 size: 28,
                               ),
                             ),
-                            hintText: 'Search in medicen',
+                            hintText: 'Search in medicen'.tr,
                             border: OutlineInputBorder(
                                 borderSide: BorderSide.none,
                                 borderRadius: BorderRadius.circular(90)),

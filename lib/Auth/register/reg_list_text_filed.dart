@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../validetoer.dart';
 
@@ -37,7 +38,7 @@ class RegsTextFiled extends StatelessWidget {
                 controller: nameController,
                 validator: (valu) {
                   if (valu!.isEmpty) {
-                    return " enter name";
+                    return "Please enter your name".tr;
                   }
                   return null;
                 },
@@ -47,7 +48,7 @@ class RegsTextFiled extends StatelessWidget {
                     borderSide:
                         const BorderSide(color: Color(0xffd6d9f1), width: 2.5),
                   ),
-                  labelText: 'Name',
+                  labelText: "8".tr,
                   prefixIcon: const Icon(Icons.account_circle_outlined),
                 ),
               ),
@@ -62,7 +63,7 @@ class RegsTextFiled extends StatelessWidget {
                     borderSide:
                         const BorderSide(color: Color(0xffd6d9f1), width: 2.5),
                   ),
-                  labelText: 'Phone',
+                  labelText: "2".tr,
                   prefixIcon: const Icon(
                     Icons.phone,
                   ),
@@ -78,7 +79,7 @@ class RegsTextFiled extends StatelessWidget {
                     borderSide:
                         const BorderSide(color: Color(0xffd6d9f1), width: 2.5),
                   ),
-                  labelText: 'Address',
+                  labelText: "9".tr,
                   prefixIcon: const Icon(
                     Icons.location_on_outlined,
                   ),
@@ -94,7 +95,7 @@ class RegsTextFiled extends StatelessWidget {
                     borderSide:
                         const BorderSide(color: Color(0xffd6d9f1), width: 2.9),
                   ),
-                  labelText: 'Password',
+                  labelText: "3".tr,
                   prefixIcon: const Icon(
                     Icons.lock_outline,
                   ),

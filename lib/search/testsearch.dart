@@ -13,9 +13,9 @@ class Test extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Reslet',
-          style: TextStyle(color: Colors.black),
+        title: Text(
+          'Results'.tr,
+          style: const TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -39,6 +39,7 @@ class Test extends StatelessWidget {
                     if (snapshot.hasData) {
                       List<SearchMedicenModel> products = snapshot.data!;
                       return GridViewhome(
+                        crossAxisCount: 2,
                         itemCount: products.length,
                         itemBuilder: (BuildContext context, index) =>
                             CustomCardSearch(
@@ -58,7 +59,7 @@ class Test extends StatelessWidget {
                           const SizedBox(
                             height: 40,
                           ),
-                          const Text('NOT Found')
+                          Text('Not Found'.tr)
                         ],
                       );
                     }

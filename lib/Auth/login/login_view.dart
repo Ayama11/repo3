@@ -30,10 +30,10 @@ class LoginPage extends StatelessWidget {
             height: 270,
             width: 260,
           ),
-          const Center(
+          Center(
             child: Text(
-              'Login',
-              style: TextStyle(
+              "1".tr,
+              style: const TextStyle(
                 fontFamily: 'PTSerif-Regular',
                 fontSize: 30,
                 color: kFontColor,
@@ -55,9 +55,9 @@ class LoginPage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                'Dont have an account ? ',
-                style: TextStyle(
+              Text(
+                "4".tr,
+                style: const TextStyle(
                   fontFamily: 'PPlayfairDisplay-SemiBoldItalic',
                   fontSize: 16,
                   color: Color.fromARGB(255, 109, 108, 108),
@@ -69,9 +69,9 @@ class LoginPage extends StatelessWidget {
                     RegisterView(),
                   );
                 },
-                child: const Text(
-                  'Register now',
-                  style: TextStyle(
+                child: Text(
+                  "5".tr,
+                  style: const TextStyle(
                     fontFamily: 'PTSerif-Regular',
                     fontSize: 18,
                     color: kFontColor,

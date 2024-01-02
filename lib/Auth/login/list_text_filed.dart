@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../help/const.dart';
 
@@ -43,7 +44,7 @@ class ListTextField extends StatelessWidget {
                     borderSide:
                         const BorderSide(color: Color(0xffd6d9f1), width: 2.5),
                   ),
-                  labelText: 'Phone',
+                  labelText: "2".tr,
                   prefixIcon: const Icon(
                     Icons.phone,
                   ),
@@ -71,7 +72,7 @@ class ListTextField extends StatelessWidget {
                     borderSide: const BorderSide(
                         color: Color.fromARGB(255, 210, 214, 241), width: 2.9),
                   ),
-                  labelText: 'Password',
+                  labelText: "3".tr,
                   prefixIcon: const Icon(
                     Icons.lock_outline,
                   ),
@@ -115,9 +116,9 @@ class ListTextField extends StatelessWidget {
                   );
                   logAPI.logIn(user);
                 },
-                child: const Text(
-                  'Sign in',
-                  style: TextStyle(fontSize: 16),
+                child: Text(
+                  "6".tr,
+                  style: const TextStyle(fontSize: 16),
                 ),
               ),
 

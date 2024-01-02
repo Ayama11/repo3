@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:repopharma_app/views/navigetion_bottom/list_profile_page.dart';
 
 import '../../widgets/header_home_view.dart/appbar.dart';
@@ -9,7 +10,7 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -17,15 +18,15 @@ class ProfileView extends StatelessWidget {
               height: 210,
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   AppBarW(
                     coloricon: Colors.white,
                     showBackArrow: true,
                     titel: Text(
-                      'Profile',
-                      style: TextStyle(
+                      "17".tr,
+                      style: const TextStyle(
                           color: Color.fromARGB(255, 255, 253, 253),
                           fontSize: 24,
                           fontFamily: 'Charm-Regular'),
@@ -35,7 +36,7 @@ class ProfileView extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 100,
             ),
             ListProfile()

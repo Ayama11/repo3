@@ -7,6 +7,7 @@ import 'package:repopharma_app/Auth/login/login_view.dart';
 import 'package:repopharma_app/config/config_server.dart';
 import 'dart:convert';
 
+import '../token.dart';
 import 'user_model.dart';
 
 class RegisterAPI {
@@ -14,11 +15,13 @@ class RegisterAPI {
     UserModel user,
   ) async {
     var response = await http.post(
-      Uri.parse(ConfigServer.domainServer + ConfigServer.register),
+      Uri.parse(
+        ConfigServer.domainServer + ConfigServer.register,
+      ),
       body: user.toJson(),
       headers: {
         'Accept': 'application/json',
-        // 'Authorization':'Bearer $token',
+        'Authorization': 'Bearer',
       },
     );
 
@@ -30,8 +33,11 @@ class RegisterAPI {
 
       if (response.statusCode == 200) {
         var josenToken = jsonDecode(response.body);
-        // var token = josenToken["token"];
-        //  print('token is $token');
+        var token = josenToken[1];
+        await TokenManager.saveToken(token);
+        //  await TokenManager.saveToken('token');
+        //  GlobalData.token = token;
+        print('token is $token');
         Get.to(LoginPage());
       }
     } else if (response.statusCode == 422) {

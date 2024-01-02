@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 //import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:repopharma_app/cart/controller.dart';
 import 'package:repopharma_app/search/search_model.dart';
 import 'package:repopharma_app/views/navigetion_bottom/favorite_view.dart';
 
 import 'package:repopharma_app/widgets/custom_elevated_Buttom.dart';
 
 import '../../help/const.dart';
+import '../widgets/circular_icons.dart';
 
 // ignore: must_be_immutable
 class CustomCardSearch extends StatelessWidget {
@@ -23,10 +25,7 @@ class CustomCardSearch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        // Get.to(const DrugDetiels());
-        // Navigator();
-      },
+      onTap: () {},
       child: Padding(
         padding: const EdgeInsets.only(left: 4, right: 4),
         child: Card(
@@ -68,7 +67,6 @@ class CustomCardSearch extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            // ' product.price.toString()' + ss,
                             '${product.price} $ss',
                             style: const TextStyle(
                                 color: Color.fromARGB(255, 10, 7, 7),
@@ -88,13 +86,14 @@ class CustomCardSearch extends StatelessWidget {
 }
 
 class BottomSheet extends StatelessWidget {
-  const BottomSheet({
+  BottomSheet({
     super.key,
     required this.product,
   });
-
+  final CartController cartController = Get.put(CartController());
   final SearchMedicenModel product;
   final String ss = '\$';
+  int count = 0;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -165,9 +164,74 @@ class BottomSheet extends StatelessWidget {
                     const SizedBox(
                       height: 90,
                     ),
-                    Center(
-                      child: CustomElevatedButton(
-                          getPage: '/Card', text: 'add to cart', width: 170),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            CircularIcons(
+                              backgrounColor: Colors.grey,
+                              width: 40,
+                              height: 40,
+                              size: 20,
+                              color: Colors.white,
+                              icon: Iconsax.minus,
+                              onPreessed: () {
+                                cartController.removeItem();
+                              },
+                            ),
+                            const SizedBox(
+                              width: 16,
+                            ),
+                            Obx(
+                              () => Text(
+                                "${cartController.numOfItem}",
+                                style: const TextStyle(fontSize: 16),
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 16,
+                            ),
+                            CircularIcons(
+                              backgrounColor: kBaseColor,
+                              width: 40,
+                              height: 40,
+                              size: 20,
+                              color: Colors.white,
+                              icon: Iconsax.add,
+                              onPreessed: () {
+                                cartController.addItem();
+                              },
+                            ),
+                          ],
+                        ),
+
+                        // const SizedBox(
+                        //   height: 20,
+                        // ),
+                        Padding(
+                          padding: const EdgeInsets.all(12),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              padding: const EdgeInsets.all(8),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                              backgroundColor: kBaseColor,
+                              elevation: 5,
+                              fixedSize: const Size(170, 53),
+                            ),
+                            onPressed: () {
+                              cartController.addToCartSearch(product);
+                              //   Get.to(const CartView());
+                            },
+                            child: const Text(
+                              'add to cart',
+                              style: TextStyle(fontSize: 16),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),

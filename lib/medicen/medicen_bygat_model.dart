@@ -37,4 +37,8 @@ class GategoryMedicenModel {
       updatedAt: json['updated_at'],
     );
   }
+
+  static fromMap(Map<String, dynamic> map) {}
+
+  toMap() {}
 }

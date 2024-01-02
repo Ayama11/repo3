@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:repopharma_app/widgets/custom_elevated_Buttom.dart';
 
@@ -35,7 +36,7 @@ class LogoPage extends StatelessWidget {
           height: 110,
         ),
         CustomElevatedButton(
-          text: 'Start',
+          text: "0".tr,
           getPage: '/LoginPage',
           width: 120,
         ),
