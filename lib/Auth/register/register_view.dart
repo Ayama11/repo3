@@ -1,32 +1,42 @@
+// login_view.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
+
 import '../../help/const.dart';
-import '../../widgets/custom_elevated_Buttom.dart';
-import '../../widgets/custom_text_Field.dart';
 import '../login/login_view.dart';
+import '../validetoer.dart';
+import 'reg_list_text_filed.dart';
+import 'register_api.dart';
+import 'user_model.dart';
 
-// ignore: must_be_immutable
-class RegisterPage extends StatelessWidget {
-  RegisterPage({super.key});
-  String? name;
-  String? phone;
-  String? address;
-  String? password;
+class RegisterView extends StatelessWidget {
+  RegisterView({super.key});
 
-  GlobalKey<FormState> formKey = GlobalKey();
+  final nameController = TextEditingController();
+
+  final phoneController = TextEditingController();
+
+  final addressController = TextEditingController();
+
+  final passwordController = TextEditingController();
+
+  final userAPI = RegisterAPI();
+
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  final formValidator = FormValidator();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-      body: Form(
-        key: formKey,
-        child: ListView(
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        body: ListView(
           children: [
             const SizedBox(
               height: 60,
             ),
-
             const Icon(
               Iconsax.user_edit,
               color: kFontColor,
@@ -34,7 +44,6 @@ class RegisterPage extends StatelessWidget {
               //Color.fromARGB(255, 109, 108, 108),
               size: 100,
             ),
-            //     const Icon(Iconsax.row_vertical),
             const SizedBox(
               height: 15,
             ),
@@ -45,9 +54,9 @@ class RegisterPage extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: [
-                    const Text(
-                      'Register',
-                      style: TextStyle(
+                    Text(
+                      "7".tr,
+                      style: const TextStyle(
                         fontFamily: 'PTSerif-Regular',
                         fontSize: 35,
                         color: kFontColor,
@@ -56,73 +65,50 @@ class RegisterPage extends StatelessWidget {
                     const SizedBox(
                       height: 30,
                     ),
-                    CustomTextField(
-                      onChanged: (data) {
-                        name = data;
+                    RegsTextFiled(
+                        formKey: formKey,
+                        nameController: nameController,
+                        formValidator: formValidator,
+                        phoneController: phoneController,
+                        addressController: addressController,
+                        passwordController: passwordController),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        backgroundColor: kBaseColor,
+                        elevation: 5,
+                        fixedSize: const Size(200, 53),
+                      ),
+                      onPressed: () {
+                        if (formKey.currentState!.validate()) {}
+                        UserModel user = UserModel(
+                          name: nameController.text,
+                          phone: phoneController.text,
+                          address: addressController.text,
+                          password: passwordController.text,
+                        );
+                        userAPI.signUp(user);
                       },
-                      typeKey: TextInputType.name,
-                      hintText: 'User name',
-                      icons: Icons.account_circle_outlined,
-                      //
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    CustomTextField(
-                      onChanged: (data) {
-                        phone = data;
-                      },
-                      hintText: 'E-Phone',
-                      icons: Icons.phone,
-                      typeKey: TextInputType.number,
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    CustomTextField(
-                      onChanged: (data) {
-                        address = data;
-                      },
-                      typeKey: TextInputType.text,
-                      hintText: 'Address',
-                      icons: Icons.location_on_outlined,
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    CustomTextField(
-                      onChanged: (data) {
-                        password = data;
-                      },
-                      typeKey: TextInputType.visiblePassword,
-                      obscureText: true,
-                      hintText: 'Password',
-                      icons: Icons.lock_outline,
-                    ),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    CustomElevatedButton(
-                      text: 'Sign up',
-                      width: 200,
-                      getPage: '/LoginPage',
-                    ),
-                    const SizedBox(
-                      height: 20,
+                      child: Text(
+                        "10".tr,
+                        style: const TextStyle(fontSize: 16),
+                      ),
                     ),
                   ],
                 ),
               ),
             ),
             const SizedBox(
-              height: 12,
+              height: 22,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
-                  'Already have an account ? ',
-                  style: TextStyle(
+                Text(
+                  "11".tr,
+                  style: const TextStyle(
                     fontFamily: 'PPlayfairDisplay-SemiBoldItalic',
                     fontSize: 16,
                     color: Color.fromARGB(255, 109, 108, 108),
@@ -132,9 +118,9 @@ class RegisterPage extends StatelessWidget {
                   onTap: () {
                     Get.off(LoginPage());
                   },
-                  child: const Text(
-                    'Login ',
-                    style: TextStyle(
+                  child: Text(
+                    "1".tr,
+                    style: const TextStyle(
                       fontFamily: 'PTSerif-Regular',
                       fontSize: 20,
                       color: kFontColor,
@@ -144,8 +130,6 @@ class RegisterPage extends StatelessWidget {
               ],
             ),
           ],
-        ),
-      ),
-    );
+        ));
   }
 }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:repopharma_app/ordersInfo/info_cart.dart';
 
-import '../views/orders/cart_order.dart';
 import '../widgets/cards/gridview_home.dart';
 import 'order_info_model.dart';
 import '../widgets/header_home_view.dart/appbar.dart';
@@ -33,7 +32,7 @@ class DetelisOrder extends StatelessWidget {
               height: 30,
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 35, right: 35),
+              padding: const EdgeInsets.only(left: 6, right: 6),
               child: FutureBuilder<List<OrderInfo>>(
                 future: OrderInfoService().orderInfo(id: id),
                 builder: (context, snapshot) {
@@ -41,7 +40,7 @@ class DetelisOrder extends StatelessWidget {
                     List<OrderInfo> product = snapshot.data!;
 
                     return GridViewhome(
-                      crossAxisCount: 1,
+                      crossAxisCount: 2,
                       itemCount: product.length,
                       itemBuilder: (BuildContext context, index) =>
                           CartOrdersInfo(
@@ -55,29 +54,6 @@ class DetelisOrder extends StatelessWidget {
                 },
               ),
             ),
-
-            //   const Padding(
-            //     padding: EdgeInsets.all(8),
-            //     child: Center(
-            //       child: Column(
-            //         children: [
-            //           Text('name id'),
-            //           SizedBox(
-            //             height: 20,
-            //           ),
-            //           Text('price'),
-            //           SizedBox(
-            //             height: 20,
-            //           ),
-            //           Text('quantity'),
-            //           SizedBox(
-            //             height: 20,
-            //           ),
-            //           Text('price total'),
-            //         ],
-            //       ),
-            //     ),
-            //   ),
           ],
         ),
       ),

@@ -53,19 +53,6 @@ class GategoryView extends StatelessWidget {
                         );
                       }),
                     ],
-
-                    //     // actions: [
-                    //     //   // Icon(Icons.read_more_outlined)
-                    //     //   //DrawerCustom(),
-
-                    //     //   IconButton(
-                    //     //     onPressed: () {
-                    //     //       scaffoldkey.currentState!.openEndDrawer();
-                    //     //     },
-                    //     //     icon: const Icon(Icons.read_more_outlined),
-                    //     //     color: Colors.white,
-                    //     //   ),
-                    //     // ],
                   ),
                   const SizedBox(
                     height: 55,

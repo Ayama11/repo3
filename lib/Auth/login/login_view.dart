@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../help/const.dart';
-import '../register/registerview.dart';
+import '../register/register_view.dart';
 import '../validetoer.dart';
 import 'list_text_filed.dart';
 import 'login_api.dart';

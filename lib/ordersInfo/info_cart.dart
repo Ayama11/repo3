@@ -21,28 +21,35 @@ class CartOrdersInfo extends StatelessWidget {
         elevation: 5,
         color: const Color.fromARGB(255, 216, 220, 243),
         child: Padding(
-          padding: const EdgeInsets.all(0),
+          padding: const EdgeInsets.all(8),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
+                padding: const EdgeInsets.only(top: 4),
+                child: Center(child: Text(" ${infoOrder.name}")),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Padding(
                 padding: const EdgeInsets.all(0),
-                child: Text('num:' " ${infoOrder.name}"),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('price medicen : ${infoOrder.priceMed}'),
+                child: Text('${"Price medicine".tr}: ${infoOrder.priceMed}$s'),
               ),
               const SizedBox(
                 height: 10,
               ),
-              Text('Price total: ${infoOrder.priceQU} $s'),
+              Padding(
+                padding: const EdgeInsets.all(0),
+                child: Text('${"Quantity".tr}: ${infoOrder.quantity}'),
+              ),
               const SizedBox(
                 height: 10,
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('Quantity: ${infoOrder.quantity}'),
-              )
+              Text('${"Total Price".tr}: ${infoOrder.priceQU} $s'),
+              const SizedBox(
+                height: 10,
+              ),
             ],
           ),
         ),

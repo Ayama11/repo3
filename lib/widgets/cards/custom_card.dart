@@ -1,11 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
-//import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:repopharma_app/cart/controller.dart';
-import 'package:repopharma_app/views/navigetion_bottom/favorite_view.dart';
+import 'package:repopharma_app/views/Favorite/favorite_controller.dart';
 
-import 'package:repopharma_app/widgets/custom_elevated_Buttom.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../help/const.dart';
@@ -23,6 +24,7 @@ class CustomCard extends StatelessWidget {
 
   final String ss = '\$';
   final CartController cartController = Get.put(CartController());
+  final FavoriteController favController = Get.put(FavoriteController());
 
   @override
   Widget build(BuildContext context) {
@@ -46,18 +48,11 @@ class CustomCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     IconButton(
-                        onPressed: () {
-                          void addToFavorites(CustomCard fav) async {
-                            SharedPreferences prefes =
-                                await SharedPreferences.getInstance();
-                            List<String> favorites =
-                                prefes.getStringList('favorites') ?? [];
-                            favorites.add(fav as String);
-                            prefes.setStringList('favorites', favorites);
-                          }
-                          // Get.to(const FavoriteView());
-                        },
-                        icon: const Icon(Iconsax.heart)),
+                      onPressed: () {
+                        favController.addFavoritList(product);
+                      },
+                      icon: const Icon(Iconsax.heart),
+                    ),
                     Center(
                       child: Text(
                         product.commercialName,
@@ -160,28 +155,28 @@ class BottomSheet extends StatelessWidget {
                       height: 10,
                     ),
                     Text(
-                      'Name : ${product.company}',
+                      ' ${"Name".tr} : ${product.company}',
                       style: const TextStyle(fontSize: 16, color: FontColor),
                     ),
                     const SizedBox(
                       height: 40,
                     ),
                     Text(
-                      'Quantity : ${product.totalQuantity}',
+                      '${"Quantity".tr} : ${product.totalQuantity}',
                       style: const TextStyle(fontSize: 16, color: FontColor),
                     ),
                     const SizedBox(
                       height: 40,
                     ),
                     Text(
-                      'ExpDate : ${product.expDate}',
+                      '${"ExpDate".tr} : ${product.expDate}',
                       style: const TextStyle(fontSize: 16, color: FontColor),
                     ),
                     const SizedBox(
                       height: 40,
                     ),
                     Text(
-                      'Price : ${product.price} $ss',
+                      '${"Price".tr} : ${product.price} $ss',
                       style: const TextStyle(fontSize: 18, color: kBaseColor),
                     ),
                     const SizedBox(

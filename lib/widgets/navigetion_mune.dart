@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:repopharma_app/cart/cart_view.dart';
 import 'package:repopharma_app/gategory_view/gategory_view.dart';
-import 'package:repopharma_app/views/navigetion_bottom/favorite_view.dart';
+import 'package:repopharma_app/views/Favorite/favorite_view.dart';
 
 import 'package:repopharma_app/views/navigetion_bottom/profile_view.dart';
 
@@ -54,7 +54,7 @@ class NavigationController extends GetxController {
   final viewScreen = [
     const GategoryView(),
     CartView(),
-    const FavoriteView(),
+    FavoriteView(),
     const ProfileView(),
   ];
 }

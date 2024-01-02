@@ -12,8 +12,7 @@ class MedicenCategoriesService {
     required int id,
   }) async {
     String? token = await TokenManager.getToken();
-    // SharedPreferences prefs = await SharedPreferences.getInstance();
-    // String? token = prefs.getString('token');
+
     List<dynamic> data = await Api().get(
       url: '${ConfigServer.domainServer}/api/show_medicines/$id',
       token: token,

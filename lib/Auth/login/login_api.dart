@@ -5,10 +5,8 @@ import 'package:http/http.dart' as http;
 import 'package:repopharma_app/Auth/login/user_model_log.dart';
 import 'package:repopharma_app/Auth/token.dart';
 import 'package:repopharma_app/config/config_server.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 
-import '../../gategory_view/gategory_view.dart';
 import '../../widgets/navigetion_mune.dart';
 
 class LoginAPI {

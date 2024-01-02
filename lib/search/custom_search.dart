@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:repopharma_app/cart/controller.dart';
 import 'package:repopharma_app/search/search_model.dart';
-import 'package:repopharma_app/views/navigetion_bottom/favorite_view.dart';
+import 'package:repopharma_app/views/Favorite/favorite_view.dart';
 
 import 'package:repopharma_app/widgets/custom_elevated_Buttom.dart';
 
@@ -47,7 +47,7 @@ class CustomCardSearch extends StatelessWidget {
                     // ),
                     IconButton(
                         onPressed: () {
-                          Get.to(const FavoriteView());
+                          Get.to(FavoriteView());
                         },
                         icon: const Icon(Iconsax.heart)),
 

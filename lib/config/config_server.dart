@@ -1,11 +1,15 @@
 class ConfigServer {
   //beas uri
-  static const domainServer = 'http://192.168.241.18:8000';
+
+  static const domainServer = 'http://192.168.1.102:8000';
+
   // auth register
+
   static const register = '/api/register';
   static const login = '/api/login';
 
   // all gategory
+
   static const gategory = '/api/show_classifications';
 
   // medicen by gategory

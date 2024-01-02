@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/sockets/src/socket_notifier.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:repopharma_app/Auth/login/login_view.dart';
 import 'package:repopharma_app/local/local_controller.dart';
-import 'package:repopharma_app/views/navigetion_bottom/profile_view.dart';
 
 import '../../Auth/token.dart';
 import '../../help/const.dart';

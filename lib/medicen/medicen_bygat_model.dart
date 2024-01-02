@@ -41,4 +41,8 @@ class GategoryMedicenModel {
   static fromMap(Map<String, dynamic> map) {}
 
   toMap() {}
+
+  Object? toJson() {
+    return null;
+  }
 }

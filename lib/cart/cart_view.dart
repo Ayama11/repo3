@@ -141,7 +141,7 @@ class CartView extends StatelessWidget {
               children: [
                 Obx(
                   () => Text(
-                      " ${"22".tr}:\n  ${cartController.totalPrice.value.toString()} $ss"),
+                      " ${"Total Price".tr}:\n  ${cartController.totalPrice.value.toString()} $ss"),
                 ),
                 Obx(
                   () => Text(

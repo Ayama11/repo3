@@ -28,7 +28,7 @@ class LocaleTra implements Translations {
           "19": "إضافة إلى السلة",
           "20": "الكمية",
           "21": "إرسال الطلبية",
-          "22": "السعر الكلي",
+          "Total Price": "السعر الكلي",
           "23": "الكمية الكلية",
           "24": "الحساب",
           'Change Language': "تغير اللغة",
@@ -73,6 +73,18 @@ class LocaleTra implements Translations {
 
           'Arabic': "عربي",
           'English': "انكليزي",
+
+          //bottom sheet
+          "Name": "الاسم",
+          "ExpDate": "تاريخ الانتهاء",
+          'Price': 'السعر',
+          "Quantity": "الكمية",
+
+          //my order
+          'Price medicine': 'سعر الدواء',
+          'Number order': 'رقم الطلب',
+          'Status': 'الحالة',
+          'Date': 'التاريخ',
         },
         "en": {
           "0": "Start",
@@ -103,7 +115,7 @@ class LocaleTra implements Translations {
           "19": "add to cart",
           "20": "Quantity",
           "21": "Send order",
-          "22": "Total Price",
+          "Total Price": "Total Price",
           "23": "Total Quantity",
           //profile
           "24": "My Account",
@@ -150,6 +162,20 @@ class LocaleTra implements Translations {
           //lan
           'Arabic': 'Arabic',
           'English': 'English',
+
+          //order
+
+          //bottom sheet
+          "Name": "Name",
+          "ExpDate": "ExpDate",
+          'Price': 'Price',
+          "Quantity": "Quantity",
+
+          // my order
+          'Price medicine': 'Price medicine',
+          'Number order': 'Number order:',
+          'Status': 'Status',
+          'Date': 'Date',
         },
       };
 }

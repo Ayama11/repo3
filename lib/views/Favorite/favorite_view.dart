@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:repopharma_app/views/Favorite/favorite_controller.dart';
 import '../../widgets/header_home_view.dart/appbar.dart';
 
 class FavoriteView extends StatelessWidget {
-  const FavoriteView({super.key});
-
+  FavoriteView({super.key});
+  FavoriteController favcontroller = Get.put(FavoriteController());
+  final String s = '\$';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,8 +44,37 @@ class FavoriteView extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            const Padding(
-              padding: EdgeInsets.all(8),
+            Padding(
+              padding: const EdgeInsets.all(60),
+              child: ListView.builder(
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  var currentItem = favcontroller.favList[index];
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Card(
+                      elevation: 5,
+                      color: const Color.fromARGB(255, 216, 220, 243),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(currentItem.commercialName),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                                '${'Price'.tr}: ${currentItem.price.toString()}$s'),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                },
+                itemCount: favcontroller.favList.length,
+              ),
             ),
           ],
         ),
@@ -62,7 +92,5 @@ Future<List<String>> getFavorites() async {
   return favorites;
 }
 
+*/
 
-
-
-*/ 
